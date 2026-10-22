@@ -177,8 +177,10 @@ let compare x y = compare__t (_t_put x) (_t_put y)
 end
 
 module Cset = Ser_cSet.Make(Cset)(Constant)
+module Cset_env = Ser_cSet.Make(Cset_env)(Constant)
 
 module Cmap = Ser_cMap.Make(Cmap)(Constant)
+module Cmap_env = Ser_cMap.Make(Cmap_env)(Constant)
 
 module MutInd = struct
 
@@ -201,6 +203,7 @@ module MutInd = struct
 end
 
 module Mindmap = Ser_cMap.Make(Mindmap)(MutInd)
+module Mindmap_env = Ser_cMap.Make(Mindmap_env)(MutInd)
 
 type 'a tableKey =
   [%import: 'a Names.tableKey]
@@ -218,7 +221,9 @@ module Ind = struct
 end
 
 module Indset = Ser_cSet.Make(Indset)(Ind)
+module Indset_env = Ser_cSet.Make(Indset_env)(Ind)
 module Indmap = Ser_cMap.Make(Indmap)(Ind)
+module Indmap_env = Ser_cMap.Make(Indmap_env)(Ind)
 
 type inductive =
   [%import: Names.inductive]
